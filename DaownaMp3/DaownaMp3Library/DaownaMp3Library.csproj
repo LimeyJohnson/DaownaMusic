@@ -49,14 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess.cs" />
-    <Compile Include="Jukebox.cs" />
     <Compile Include="LoginCredentials.cs" />
     <Compile Include="Member.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicDB.cs" />
     <Compile Include="PlayList.cs" />
-    <Compile Include="PlaylistJSON.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServerInfo.cs" />
     <Compile Include="Track.cs" />
   </ItemGroup>
   <ItemGroup>

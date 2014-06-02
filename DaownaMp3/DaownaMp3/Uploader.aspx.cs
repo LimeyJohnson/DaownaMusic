@@ -40,7 +40,9 @@ namespace DaownaMp3
             blockBlob.UploadFromStream(uplTrack.PostedFile.InputStream);
 
             //DataAccess.Instance.AddNewTrack(txtTrack.Text, txtArtist.Text, blockBlob.Uri, Session["ID"].ToString());
-            Track uploadTrack = new Track(txtTrack.Text, txtArtist.Text, "", Convert.ToInt32(Session["ID"].ToString()), cbxShare.Checked, blockBlob.Uri.ToString());
+            
+            //TODO UPDATE
+            //Track uploadTrack = new Track(txtTrack.Text, txtArtist.Text, "", Convert.ToInt32(Session["ID"].ToString()), cbxShare.Checked, blockBlob.Uri.ToString());
 
             Response.Redirect("~/Member/Member.aspx");
         }

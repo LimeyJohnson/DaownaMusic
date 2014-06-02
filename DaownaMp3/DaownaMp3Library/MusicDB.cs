@@ -12,6 +12,9 @@ namespace DaownaMp3Library
         // 
         // If you wish to target a different database and/or database provider, modify the 'Model1' 
         // connection string in the application configuration file.
+        public DbSet<Track> Tracks { get; set; }
+        public DbSet<PlayList> Playlists { get; set; }
+        
         public MusicDB()
             : base("DaownaMp3")
         {
@@ -21,6 +24,8 @@ namespace DaownaMp3Library
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
+
+        
     }
 
     //public class MyEntity

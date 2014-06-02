@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DaownaMp3Library
 {
-    public class Member
+    public class User
     {
         public int ID
         {

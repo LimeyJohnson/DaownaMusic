@@ -35,16 +35,17 @@ namespace DaownaMp3Library
         }
         public bool Authenticate()
         {
-            return DataAccess.Instance.Authenticate(this);
+            return false;
         }
         public void EmailLostPassword()
         {
-            MailMessage passwordMessage = new MailMessage(ServerInfo.DaownaMp3EmailAddress, Username, "Password Recovery", "Your password is: " + Password);
-            SmtpClient objsmtp = new SmtpClient("smtp.gmail.com", 587);
-            objsmtp.EnableSsl = true;
-            objsmtp.UseDefaultCredentials = false;
-            objsmtp.Credentials = new NetworkCredential(ServerInfo.DaownaMp3EmailAddress, ServerInfo.DaownaMp3EmailPassword);
-            objsmtp.Send(passwordMessage);
+            //TODO move into hidden connection string so that the world can't see our server info
+            //MailMessage passwordMessage = new MailMessage(ServerInfo.DaownaMp3EmailAddress, Username, "Password Recovery", "Your password is: " + Password);
+            //SmtpClient objsmtp = new SmtpClient("smtp.gmail.com", 587);
+            //objsmtp.EnableSsl = true;
+            //objsmtp.UseDefaultCredentials = false;
+            //objsmtp.Credentials = new NetworkCredential(ServerInfo.DaownaMp3EmailAddress, ServerInfo.DaownaMp3EmailPassword);
+            //objsmtp.Send(passwordMessage);
         }
     }
 }
