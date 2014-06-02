@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,108 +9,32 @@ namespace DaownaMp3Library
 {
     public class PlayList
     {
-        private string _playlistName;        
-        private int _playlistId, _userId;
-        private List<int> _playlistTrackIds, _playlistOrder;
-        private bool _public;
-        private List<Track> _orderedTracks;
 
-        public PlayList(int playlistId)
-        {
-            _playlistId = playlistId;
-        }
-        public PlayList(string name, int userId, bool isPublic)
-        {
-            _playlistId = DataAccess.Instance.AddPlayList(name, userId, isPublic);
-            _playlistName = this.Name;
-            _userId = this.UserId;
-        }
-
+        [Key]
         public int PlaylistID
         {
-            get { return _playlistId; }
+            get;
+            set;
         }
         public string Name
         {
-            get 
-            { 
-                if (_playlistName == null)
-                    _playlistName = DataAccess.Instance.GetPlayListName(_playlistId);
-
-                return _playlistName; 
-            }
-            set 
-            {
-                if (DataAccess.Instance.SetPlayListName(_playlistId, value))
-                    _playlistName = value;
-                else
-                {
-                    //error setting playlist name
-                }
-            }
+            get;
+            set;
         }
-        public int UserId
+        public Member Member
         {
-            get
-            {
-                if (_userId == null)
-                    DataAccess.Instance.GetPlayListUserId(_playlistId);
-
-                return _userId;
-            }
-            set
-            {
-                if (DataAccess.Instance.SetPlayListUserId(_playlistId, value))
-                    _userId = value;
-                else
-                {
-                    //error setting user id
-                }
-            }
+            get;
+            set;
         }
         public bool IsPublic
         {
-            get
-            {
-                _public = DataAccess.Instance.GetPlayListIsPublic(_playlistId);
-                return _public;
-            }
-            set
-            {
-                if (DataAccess.Instance.SetPlayListPublic(_playlistId, value))
-                    _public = value;
-                else
-                {
-                    //error setting if playlist is public
-                }
-
-            }
+            get;
+            set;
         }
-        public List<int> PlayListTrackIds
+        public List<Track> Tracks
         {
-            get
-            {
-                if (_playlistTrackIds == null)
-                    _playlistTrackIds = DataAccess.Instance.GetPlayListTrackIds(_playlistId);
-                
-                return _playlistTrackIds;
-            }
-            set 
-            {
-                _playlistTrackIds = DataAccess.Instance.GetPlayListTrackIds(_playlistId);
-
-                for (int i = 0; i < value.Count; i++)
-                    if (DataAccess.Instance.FindPlayListTrackId(_playlistId, _playlistTrackIds[i]) != true)
-                        if (DataAccess.Instance.AddPlayListTrack(_playlistId, value[i], _orderedTracks.Last().PlaylistTrackId) != true)
-                        {
-                            //error adding playlist-track row
-                        }
-                        else
-                            _orderedTracks.Add(new Track(_playlistId, value[i], _orderedTracks.Last().PlaylistTrackId));
-
-                _playlistTrackIds = DataAccess.Instance.GetPlayListTrackIds(_playlistId);
-                this.PlayListSyncOrder();
-            }
+            get;
+            set;
         }
         public List<int> PlayListOrder
         {
