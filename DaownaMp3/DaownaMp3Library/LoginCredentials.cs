@@ -6,6 +6,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.ComponentModel.DataAnnotations;
 
 namespace DaownaMp3Library
 {
@@ -21,6 +22,7 @@ namespace DaownaMp3Library
             get;
             set;
         }
+        [Key]
         public int ID
         {
             get;
@@ -37,7 +39,7 @@ namespace DaownaMp3Library
         }
         public void EmailLostPassword()
         {
-            MailMessage passwordMessage = new MailMessage(ServerInfo.DaownaMp3EmailAddress, _username, "Password Recovery", "Your password is: " + _password);
+            MailMessage passwordMessage = new MailMessage(ServerInfo.DaownaMp3EmailAddress, Username, "Password Recovery", "Your password is: " + Password);
             SmtpClient objsmtp = new SmtpClient("smtp.gmail.com", 587);
             objsmtp.EnableSsl = true;
             objsmtp.UseDefaultCredentials = false;

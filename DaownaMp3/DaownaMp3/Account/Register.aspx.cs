@@ -21,14 +21,14 @@ namespace DaownaMp3.Account
                 Response.Write("<script>alert('A field was left blank. Please try again.');</script>");
             else
             {
-                LoginCredentials registeringAccount = new LoginCredentials(AccountName.Text, Password.Text, Email.Text);
-                if (registeringAccount.Register())
-                {
-                    //good for you
-                    Response.Redirect(@"~/Default.aspx");
-                }
-                else
-                    Response.Write("<script>alert('Account name or e-mail already in use.');</script>");
+                //LoginCredentials registeringAccount = new LoginCredentials(AccountName.Text, Password.Text, Email.Text);
+                //if (registeringAccount.Register())
+                //{
+                //    //good for you
+                //    Response.Redirect(@"~/Default.aspx");
+                //}
+                //else
+                //    Response.Write("<script>alert('Account name or e-mail already in use.');</script>");
             }
         }
     }

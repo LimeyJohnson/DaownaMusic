@@ -17,16 +17,16 @@ namespace DaownaMp3.Account
 
         protected void LoginButton_Click(object sender, EventArgs e)
         {            
-            LoginCredentials currentCredentials = new LoginCredentials(UserName.Text, Password.Text);
-            bool login = currentCredentials.Authenticate();
+           // LoginCredentials currentCredentials = new LoginCredentials(UserName.Text, Password.Text);
+            //bool login = currentCredentials.Authenticate();
 
-            if (login == true)
-            {
-                Session["ID"] = currentCredentials.ID;
-                Response.Redirect(@"~/Member/Member.aspx");
-            }
-            else
-                Response.Write("<script>alert('Account name and password did not match.');</script>");
+            //if (login == true)
+            //{
+            //    Session["ID"] = currentCredentials.ID;
+            //    Response.Redirect(@"~/Member/Member.aspx");
+            //}
+            //else
+            //    Response.Write("<script>alert('Account name and password did not match.');</script>");
         }
         protected void ForgotPasswordButton_Click(object sender, EventArgs e)
         {

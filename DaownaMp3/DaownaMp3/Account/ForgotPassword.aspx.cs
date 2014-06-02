@@ -20,15 +20,16 @@ namespace DaownaMp3.Account
 
         protected void EmailPassword_Click(object sender, EventArgs e)
         {
-            LoginCredentials findPassword = new LoginCredentials(txtNameEmail.Text);
-            if (findPassword.Username == "dne")
-                Response.Write("<script>alert('No account match was found from input.');</script>");
-            else
-            {   
-                findPassword.EmailLostPassword();
+            //TODO Fixup to use entity framework
+            //LoginCredentials findPassword = new LoginCredentials(txtNameEmail.Text);
+            //if (findPassword.Username == "dne")
+            //    Response.Write("<script>alert('No account match was found from input.');</script>");
+            //else
+            //{   
+            //    findPassword.EmailLostPassword();
 
-                Response.Redirect(@"~/Account/Login.aspx");
-            }
+            //    Response.Redirect(@"~/Account/Login.aspx");
+            //}
         }
     }
 }
